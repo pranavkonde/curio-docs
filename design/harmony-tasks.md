@@ -38,7 +38,7 @@ In the Commit 2 phase, the file from the Commit 1 gets compressed into a much sm
 
 The Finalize task performs the following operations:
 
-1. It truncates the output of TreeD file to the sector size and them moves it to the unsealed file location of the sector. User should not that unsealed sector copy will not exist till point in the sealing pipeline. The unsealed copy is created on if “KeepUnsealed” is true for the deal.
+1. It truncates the output of TreeD file to the sector size and then moves it to the unsealed file location of the sector. User should note that unsealed sector copy will not exist till point in the sealing pipeline. The unsealed copy is created on if “KeepUnsealed” is true for the deal.
 2. The cache files for the sector are cleaned up at this stage.
 3. Delete the local copy of the pieces that have been added to the sector.
 
@@ -76,7 +76,7 @@ The SendMessage task implements a message queue where message can be added by an
 
 ### ParkPiece&#x20;
 
-Curio has implemented a new file location within the storage subsystem called “piece”. This directory is used to temporarily park the pieces while they are being sealed. The `parked_pieces` also contains the URL and headers to download the data. The ParkPiece task scans the `parked_pieces` table in HarmonyDB every 15 seconds. If any pieces are found, a corresponding file is created in under “piece” directory of the storage and data is downloaded to the file from the URL. When `SectorAddPieceToAny` method is called by an external market node, it creates a ParkPiece tasks.
+Curio has implemented a new file location within the storage subsystem called “piece”. This directory is used to temporarily park the pieces while they are being sealed. The `parked_pieces` also contains the URL and headers to download the data. The ParkPiece task scans the `parked_pieces` table in HarmonyDB every 15 seconds. If any pieces are found, a corresponding file is created under “piece” directory of the storage and data is downloaded to the file from the URL. When `SectorAddPieceToAny` method is called by an external market node, it creates a ParkPiece tasks.
 
 ### DropPiece&#x20;
 
@@ -84,7 +84,7 @@ The DropPiece tasks are responsible for removing a piece from `Piece Park` and e
 
 ### Resource requirements for each Task type in Curio&#x20;
 
-By default, the number of tasks allowed for each type are not limited on any Curio node. The distributed scheduler ensures that no Curio node over-commits the resources.
+By default, the number of tasks allowed for each type is not limited on any Curio node. The distributed scheduler ensures that no Curio node over-commits the resources.
 
 | Task Name       | CPU | RAM(GiB) | GPU | Retry |
 | --------------- | --- | -------- | --- | ----- |

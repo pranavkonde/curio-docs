@@ -153,7 +153,7 @@ Curio provides a utility for users to onboard quickly. Please run the below comm
 
     ✔ Step Complete: Pre-initialization steps complete
     ```
-4.  Enter the wallet details be used for “create miner” message.\
+4.  Enter the wallet details to be used for “create miner” message.\
 
 
     ```
@@ -204,7 +204,7 @@ Curio provides a utility for users to onboard quickly. Please run the below comm
     Hint: I am someone running Curio on whichever chain.
     Nothing.
     ```
-7.  Finish the initialisation.\
+7.  Finish the initialization.\
 
 
     ```
